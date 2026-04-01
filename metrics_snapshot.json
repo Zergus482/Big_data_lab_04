@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-04-01T22:53:43.425374",
+  "message_count": 361,
+  "uptime_seconds": 7.47,
+  "conversion_rates": {
+    "view_to_cart_rate": 177.05,
+    "cart_to_purchase_rate": 41.67,
+    "view_to_purchase_rate": 73.77,
+    "total_views": 61,
+    "total_cart_adds": 108,
+    "total_purchases": 45
+  },
+  "average_session_value": {
+    "average_session_value": 5053.67,
+    "total_revenue": 80858.75,
+    "sessions_with_purchase": 16
+  },
+  "top_customers": [
+    {
+      "user_id": 65,
+      "action_count": 64
+    },
+    {
+      "user_id": 74,
+      "action_count": 32
+    },
+    {
+      "user_id": 1,
+      "action_count": 22
+    },
+    {
+      "user_id": 53,
+      "action_count": 21
+    },
+    {
+      "user_id": 54,
+      "action_count": 20
+    }
+  ],
+  "abandonment_sessions": {
+    "abandoned_sessions": [
+      {
+        "user_id": 76,
+        "actions_count": 5,
+        "last_action": "logout"
+      },
+      {
+        "user_id": 40,
+        "actions_count": 5,
+        "last_action": "logout"
+      },
+      {
+        "user_id": 57,
+        "actions_count": 5,
+        "last_action": "logout"
+      },
+      {
+        "user_id": 33,
+        "actions_count": 5,
+        "last_action": "logout"
+      },
+      {
+        "user_id": 87,
+        "actions_count": 8,
+        "last_action": "view_product"
+      }
+    ],
+    "abandonment_count": 5,
+    "abandonment_rate": 10.42
+  },
+  "hourly_activity": {
+    "22": 361
+  },
+  "product_performance": {
+    "keyboard": {
+      "views": 10,
+      "cart_adds": 21,
+      "purchases": 8,
+      "revenue": 798.2336681861357
+    },
+    "laptop": {
+      "views": 17,
+      "cart_adds": 35,
+      "purchases": 17,
+      "revenue": 16981.93749188955
+    },
+    "mouse": {
+      "views": 10,
+      "cart_adds": 17,
+      "purchases": 7,
+      "revenue": 355.7794283176031
+    },
+    "tablet": {
+      "views": 10,
+      "cart_adds": 21,
+      "purchases": 6,
+      "revenue": 2958.1355340842692
+    },
+    "smartphone": {
+      "views": 7,
+      "cart_adds": 8,
+      "purchases": 5,
+      "revenue": 4018.0847892847255
+    },
+    "headphones": {
+      "views": 7,
+      "cart_adds": 6,
+      "purchases": 2,
+      "revenue": 299.6665020917053
+    }
+  },
+  "total_users": 48,
+  "total_revenue": 80858.74921101154
+}

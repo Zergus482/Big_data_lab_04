@@ -341,7 +341,57 @@ def generate_text_report():
     print("Отчёт сохранён в {}".format(filename))
     return report_text
 
+# ===== ФУНКЦИЯ СОХРАНЕНИЯ CSV =====
 
+def export_session_data_to_csv():
+    """Сохраняет данные о сессиях пользователей в CSV файл"""
+    session_records = []
+    
+    for user_id, actions in user_behavior.items():
+        if actions:
+            session_records.append({
+                'user_id': user_id,
+                'total_actions': len(actions),
+                'actions': '|'.join(actions),
+                'first_action': actions[0],
+                'last_action': actions[-1],
+                'has_purchase': 'purchase' in actions,
+                'has_cart_add': 'add_to_cart' in actions,
+                'timestamp': datetime.now().isoformat()
+            })
+    
+    if session_records:
+        df = pd.DataFrame(session_records)
+        df.to_csv('user_sessions.csv', index=False, encoding='utf-8-sig')
+        print("Сохранено {} сессий в user_sessions.csv".format(len(session_records)))
+        return True
+    else:
+        print("Нет данных для сохранения в CSV")
+        return False
+    
+# ===== ФУНКЦИЯ СОХРАНЕНИЯ JSON =====
+
+def save_real_time_metrics():
+    """Сохраняет все текущие метрики в JSON файл"""
+    metrics = {
+        'timestamp': datetime.now().isoformat(),
+        'message_count': message_count,
+        'uptime_seconds': round(time.time() - start_time, 2),
+        'conversion_rates': calculate_conversion_rates(),
+        'average_session_value': calculate_average_session_value(),
+        'top_customers': find_top_customers(5),
+        'abandonment_sessions': detect_abandonment_sessions(),
+        'hourly_activity': dict(hourly_activity),
+        'product_performance': {k: dict(v) for k, v in product_performance.items()},
+        'total_users': len(user_behavior),
+        'total_revenue': sum(revenue_data)
+    }
+    
+    with open('metrics_snapshot.json', 'w', encoding='utf-8') as f:
+        json.dump(metrics, f, indent=2, ensure_ascii=False)
+    
+    print("Метрики сохранены в metrics_snapshot.json")
+    return metrics
 # ===== ОСНОВНОЙ ЦИКЛ ПОТРЕБЛЕНИЯ =====
 
 try:
@@ -410,5 +460,6 @@ except KeyboardInterrupt:
     
     create_analytics_dashboard()
     generate_text_report()
-    
+    export_session_data_to_csv()      
+    save_real_time_metrics()  
     print("\nВсе данные успешно сохранены!")
